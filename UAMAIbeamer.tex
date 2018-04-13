@@ -1,0 +1,227 @@
+\usepackage{textpos} % package for the positioning
+\usepackage{eso-pic}
+\usepackage{tikz}
+
+\newcommand\AtPagemyLowerRight[1]{\AtPageLowerLeft{%
+\put(\LenToUnit{0.0\paperwidth},\LenToUnit{0.0\paperheight}){#1}}}
+\AddToShipoutPictureFG{
+  \AtPagemyLowerRight{{\includegraphics[height=0.29cm,keepaspectratio]{footer}}}
+}%
+
+
+\mode<presentation>
+{
+  \usetheme{Boadilla}
+  \setbeamercovered{transparent}  % or whatever (possibly just delete it)
+}
+
+\usepackage{color}
+\definecolor{arduteal}{RGB}{23, 161, 165}
+\definecolor{uamai}{RGB}{141, 198, 63}
+
+\makeatletter
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor~~\beamer@ifempty{\insertshortinstitute}{}{\insertshortinstitute}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{section in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+    \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\makeatother
+
+\setbeamercolor{toptitlecolor}{fg=black,bg=uamai}
+\makeatletter
+\setbeamertemplate{frametitle}
+{\vskip-3pt
+  \leavevmode
+  \hbox{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.7ex,dp=1.2ex]{toptitlecolor}%
+    \raggedright\hspace*{0.4em}\large\insertframetitle
+  \end{beamercolorbox}
+  }%
+}
+\makeatother
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north east,yshift=7.9mm,xshift=4.5mm] at (current page.north east) {\includegraphics[height=2cm]{uamai}};
+\end{tikzpicture}}
+
+
+%
+%\addtobeamertemplate{frametitle}{}{%
+%
+
+
+\makeatletter
+\definecolor{beamer@blendedblue}{RGB}{141, 198, 63}
+\makeatother
+
+ \usepackage{graphicx}
+\graphicspath{{./figs/}}
+\usepackage{epstopdf} %Converts EPS to PDF so PDFLaTeX can be used
+\newcommand{\figone}[0] {1.000\textwidth} %Multiplier for all single full width images
+\newcommand{\figtwo}[0] {0.48\textwidth} %Multiplier for all double half width images
+\newcommand{\figthree}[0] {0.321\textwidth} %Multiplier for all triple third width images
+\newcommand{\figtwoh}[0] {0.3\textheight} %Multiplier for all double half width
+
+
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{theorem}
+\usepackage{epsfig}
+\usepackage{mathrsfs} %mathscr
+\usepackage[cp1250]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{courier} % To get courier fonts in listings
+\usepackage{listings}
+\lstset{basicstyle=\normalsize\ttfamily,breaklines=true,numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em}
+
+\lstdefinelanguage{Arduino}[]{C++}      %Defining Arduino
+{morekeywords={pgm_read_float,pgm_read_word,PROGMEM,pinMode,digitalWrite,digitalRead,analogReference,analogRead,analogWrite,analogReadResolution,analogWriteResolution,tone,noTone,shiftOut,shiftIn,pulseIn,millis,micros,delay,delayMicroseconds,min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,isAlphaNumeric,isAlpha,isAscii,isWhitespace,isControl,isDigit,isGraph,isLowerCase,isPrintable,isPunct,isSpace,isUpperCase,iisHexadecimalDigit,randomSeed,random,lowByte,highByte,bitRead,bitWrite,
+bitSet,bitClear,bit,attachInterrupt,detachInterrupt,interrupts,noInterrupts,Serial,Stream,Keyboard,Mouse},
+sensitive=true,
+alsoletter={_}
+}
+
+
+
+\lstdefinelanguage{myArduino}[]{Arduino}      %Defining my own Arduino
+{morekeywords={setup,loop,function},
+sensitive=true,
+alsoletter={_},
+numbers=left,
+xleftmargin=2em,
+frame=single,
+framexleftmargin=1.5em
+}
+
+%Extended Matlab language
+\lstdefinelanguage{myMatlab}[]{Matlab}      {morekeywords={ectrl.exportToC,cost,LTISystem,QuadFunction,MPCController,toExplicit,partition,feedback,fplot,function,arduino,writeDigitalPin,textscan,fminsearch,dlqr,predmodelqp,dlyap,ones,linprog,quadprog,optimset,qpOASES,qpOASES_sequence,sysStruct,probStruct,mpt_control,volume,hull,extreme,mpt_exportc,mpt_getInput,sdpvar,blkdiag,sdpsettings,solvesdp,geomean,double,},
+sensitive=true,
+alsoletter={_}
+numbers=left,
+xleftmargin=2em,
+frame=single,
+framexleftmargin=1.5em
+}
+
+\lstdefinelanguage{myPython}[]{Python}
+{morekeywords={},
+sensitive=true,
+alsoletter={_}
+numbers=left,
+xleftmargin=2em,
+frame=single,
+framexleftmargin=1.5em}
+
+\lstdefinelanguage{myBash}[]{bash}
+{morekeywords={},
+sensitive=true,
+alsoletter={_}
+numbers=left,
+xleftmargin=2em,
+frame=single,
+framexleftmargin=1.5em}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=myArduino,
+  showstringspaces=false,
+  basicstyle=\normalsize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{custompython}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=myPython,
+  showstringspaces=false,
+  basicstyle=\normalsize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{custommatlab}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  xleftmargin=\parindent,
+  language=myMatlab,
+  showstringspaces=false,
+  basicstyle=\normalsize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+ }
+
+
+\lstnewenvironment{arduino}[1]{
+\lstset{
+language=myArduino,
+caption=#1,
+label=#1,
+style=customc}
+}
+{
+}
+
+%Plain with no numbering
+\lstnewenvironment{ardu}{
+\lstset{
+language=myArduino,
+style=customc}
+}
+{
+}
+
+\lstnewenvironment{matlab}[1]{
+\lstset{
+language=myMatlab,
+caption=#1,
+label=#1,
+style=custommatlab}
+}
+{
+}
+
+\lstnewenvironment{mtlb}{
+\lstset{
+language=myMatlab,
+style=custommatlab}
+}
+{
+}
+
+%----------------------------------------------------
+\newcommand{\muaompc}{$\mu${AO-MPC}}
+
+\renewcommand{\vec}[1]{\boldsymbol{\mathrm{#1}}} %Bold vectors instead of arrows
+
+%This custom command defines how the literal menus look like.
+\newcommand{\gui}[1]{{\emph{#1}}} %Gui commands, icon names, buttons
+
+% All code, functions, variables are typed like this
+\newcommand{\code}[1]{{\lstinline[columns=fixed]{#1}}} %Shorthand for code
+
+
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}

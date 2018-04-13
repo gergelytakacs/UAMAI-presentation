@@ -1,0 +1,32 @@
+\frametitle{Be creative!}
+Combine the above tricks to create visually engaging presentations!
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+\begin{ardu}
+void setup() {
+     // Pin D13 out
+}
+
+void loop() {
+     // turn LED on
+     // wait 1 s
+     // turn LED off
+     // wait 1 s
+}
+\end{ardu}
+\end{column}
+\begin{column}{.48\textwidth}
+\begin{block}{Important information}
+Very important information
+\end{block}
+\begin{itemize}
+\item List item one
+\item List item two
+\item List item three
+\end{itemize}
+\begin{figure}
+\centering
+  \includegraphics[width=20mm]{borat}\\
+\end{figure}
+\end{column}%
+\end{columns}

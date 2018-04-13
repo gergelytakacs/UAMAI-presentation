@@ -1,0 +1,174 @@
+\documentclass{beamer}
+\input{UAMAIbeamer}
+
+\title[Event or Presentation title] % (optional, use only with long paper titles)
+{My awesome presentation:\\ a LaTeX Beamer extravaganza}
+%\subtitle{}
+
+
+\author[] % (optional, use only with lots of authors)
+{prof. Ing. Jo\v{z}ko Mrkvi\v{c}ka, PhD.}
+%{F.~Author\inst{1} \and S.~Another\inst{2}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\date[13.04.2018] % (optional, should be abbreviation of conference name)
+{}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\titlegraphic{\includegraphics[height=3cm]{stu}\hspace*{1cm}~%
+   \includegraphics[height=3cm]{uamai}
+}
+
+\subject{}
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+
+\AtBeginSection[]
+{
+  \begin{frame}
+  \frametitle{Contents}
+  \tiny{\tableofcontents[currentsection]}
+  \end{frame}
+}
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+%\beamerdefaultoverlayspecification{<+->}
+
+\begin{document}
+\lstset{aboveskip=3pt, belowskip=3pt} %Space above and below lstlist boxes
+%\nologo
+\begin{frame}%[plain]
+  \titlepage
+\end{frame}
+
+%\begin{frame}[plain]{Outline}
+%\tableofcontents[part=1]
+%\end{frame}
+%\begin{frame}
+%\frametitle{Outline}
+%\tableofcontents[part=1,pausesections]
+%\end{frame}
+
+\begin{frame}{Classic itemized list}
+This is some normal text with some items:
+  \begin{itemize}
+    \item List item one,
+    \item List item two,
+    \item and list item three.
+  \end{itemize}
+  And some more text.
+\end{frame}
+
+\begin{frame}{Blocks}
+You can also highlight information
+\begin{block}{This is a block}
+Some information worth remembering.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Code and fragile frames}
+Beamer does not like code listings very much, so you will need to use the {\bf fragile} modifier. This is an example of some Arduino code:
+\begin{ardu}
+void setup() {
+     // Pin D13 out
+}
+
+void loop() {
+     // turn LED on
+     // wait 1 s
+     // turn LED off
+     // wait 1 s
+}
+\end{ardu}
+\end{frame}
+
+
+\begin{frame}{Columns}
+Sometimes it is a good idea to divide the frame into two columns. You can use other environments in frames:
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+This is the content in the first (left) column.
+
+Yet more information.
+
+Chicken, chicken, chicken.
+\end{column}
+\begin{column}{.48\textwidth}
+This is the content in the second (right) column.
+
+Yet more information.
+
+
+Chicken, chicken, chicken.
+\end{column}%
+\end{columns}
+\end{frame}
+
+\part{{\bf Parts} \protect\\ This is a stand-alone page separating parts. Use it sparingly, only for long presentations or lectures (>45 min).}
+\frame{\partpage}
+
+\begin{frame}{Figures}
+Figures work the same exact way as in any other \LaTeX document:
+\begin{figure}
+\centering
+  \includegraphics[width=50mm]{borat}\\
+\end{figure}
+This of course includes the subfigure environment.
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Be creative!}
+Combine the above tricks to create visually engaging presentations!
+\begin{columns}[T] % align columns
+\begin{column}{.48\textwidth}
+\begin{ardu}
+void setup() {
+     // Pin D13 out
+}
+
+void loop() {
+     // turn LED on
+     // wait 1 s
+     // turn LED off
+     // wait 1 s
+}
+\end{ardu}
+\end{column}
+\begin{column}{.48\textwidth}
+\begin{block}{Important information}
+Very important information
+\end{block}
+\begin{itemize}
+\item List item one
+\item List item two
+\item List item three
+\end{itemize}
+\begin{figure}
+\centering
+  \includegraphics[width=20mm]{borat}\\
+\end{figure}
+\end{column}%
+\end{columns}
+\end{frame}
+
+
+
+
+\end{document}
+
+
+
+
+
