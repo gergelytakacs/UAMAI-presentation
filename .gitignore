@@ -1,0 +1,8 @@
+# ignore all LaTeX auxiliaries
+*.aux
+*.toc
+*.log
+*.bbl
+*.blg
+*.synctex
+*.nav
