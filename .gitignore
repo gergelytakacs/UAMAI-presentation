@@ -6,3 +6,5 @@
 *.blg
 *.synctex
 *.nav
+*.snm
+*.out
