@@ -2,11 +2,7 @@
 \usepackage{eso-pic}
 \usepackage{tikz}
 
-\newcommand\AtPagemyLowerRight[1]{\AtPageLowerLeft{%
-\put(\LenToUnit{0.0\paperwidth},\LenToUnit{0.0\paperheight}){#1}}}
-\AddToShipoutPictureFG{
-  \AtPagemyLowerRight{{\includegraphics[height=0.29cm,keepaspectratio]{footer}}}
-}%
+\usepackage{xstring}
 
 
 \mode<presentation>
@@ -19,7 +15,45 @@
 \definecolor{arduteal}{RGB}{23, 161, 165}
 \definecolor{uamai}{RGB}{141, 198, 63}
 
+
+%\newcommand\AtPagemyLowerRight[1]{\AtPageLowerLeft{%
+%\put(\LenToUnit{0.0\paperwidth},\LenToUnit{0.0\paperheight}){#1}}}
+%\AddToShipoutPictureFG{
+%  \AtPagemyLowerRight{{\includegraphics[height=0.29cm,keepaspectratio]{footer}}}
+%}%
+
+
+%\newcommand{\slidefooter}{
+%  %\IfEqCase{#1}{
+%    {EN}{
+%      \IfEqCase{#2}{
+%        {STU}{
+%      \begin{tikzpicture}[remember picture,overlay]
+%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_EN_STU}};
+%      \end{tikzpicture}}
+%          {SjF}{
+%      \begin{tikzpicture}[remember picture,overlay]
+%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_EN_SjF}};
+%      \end{tikzpicture}}
+%      }
+%    }
+%    {SK}{
+%      \IfEqCase{#2}{
+%        {STU}{
+%      \begin{tikzpicture}[remember picture,overlay]
+%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_SK_STU}};
+%      \end{tikzpicture}}
+%          {SjF}{
+%      \begin{tikzpicture}[remember picture,overlay]
+%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_SK_SjF}};
+%      \end{tikzpicture}}
+%      }
+%    }
+%  }
+%}
+
 \makeatletter
+\newcommand{\slidefooter}[2]{
 \setbeamertemplate{footline}
 {
   \leavevmode%
@@ -34,9 +68,39 @@
     \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
     \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
   \end{beamercolorbox}}%
+  
+  \IfEqCase{#1}{
+    {EN}{
+      \IfEqCase{#2}{
+        {STU}{
+      \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=south west,yshift=-0.7mm,xshift=-0.2mm] at (current page.south west) {\includegraphics[height=2.5mm]{footer_EN_STU}};
+      \end{tikzpicture}}
+          {SjF}{
+      \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=south west,yshift=-0.5mm,xshift=-0.2mm] at (current page.south west) {\includegraphics[height=2mm]{footer_EN_SjF}};
+      \end{tikzpicture}}
+      }
+    }
+    {SK}{
+      \IfEqCase{#2}{
+        {STU}{
+      \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=south west,yshift=-0.7mm,xshift=-0.2mm] at (current page.south west) {\includegraphics[height=2.5mm]{footer_SK_STU}};
+      \end{tikzpicture}}
+          {SjF}{
+      \begin{tikzpicture}[remember picture,overlay]
+            \node[anchor=south west,yshift=-0.5mm,xshift=-0.2mm] at (current page.south west) {\includegraphics[height=2.0mm]{footer_SK_SjF}};
+      \end{tikzpicture}}
+      }
+    }
+  }
+  
   \vskip0pt%
 }
+}
 \makeatother
+
 
 \setbeamercolor{toptitlecolor}{fg=black,bg=uamai}
 \makeatletter
@@ -51,20 +115,31 @@
 }
 \makeatother
 
-\addtobeamertemplate{frametitle}{}{%
-\begin{tikzpicture}[remember picture,overlay]
-\node[anchor=north east,yshift=7.9mm,xshift=4.5mm] at (current page.north east) {\includegraphics[height=2cm]{uamai}};
-\end{tikzpicture}}
 
 
-%
-%\addtobeamertemplate{frametitle}{}{%
-%
+\newcommand{\slideheader}[1]{
 
+  \IfEqCase{#1}{
+    {EN}{
+    \addtobeamertemplate{frametitle}{}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=7.9mm,xshift=4.5mm] at (current page.north east) {\includegraphics[height=2cm]{uamai}};
+    \end{tikzpicture}}
+    }
+    {SK}{
+    \addtobeamertemplate{frametitle}{}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north east,yshift=7.9mm,xshift=4.5mm] at (current page.north east) {\includegraphics[height=2cm]{uamaiSK}};
+    \end{tikzpicture}}
+    }
+  }
+}
 
 \makeatletter
 \definecolor{beamer@blendedblue}{RGB}{141, 198, 63}
 \makeatother
+
+\definecolor{UAMAIgreen}{RGB}{141, 198, 63}
 
  \usepackage{graphicx}
 \graphicspath{{./figs/}}
@@ -225,3 +300,163 @@ style=custommatlab}
 
 
 \usepackage[framed,numbered,autolinebreaks,useliterate]{mcode}
+
+
+
+
+% References
+\newcommand{\referencesslide}[2]{
+\referencebegin   
+    
+  \IfEqCase{#2}{
+    {EN}{
+    \begin{frame}[allowframebreaks,plain]{References}
+    }
+    {SK}{
+    \begin{frame}[allowframebreaks,plain]{Bibliografia}
+    }
+  }  
+    \tiny
+    \bibliographystyle{apalike}
+    \bibliography{#1}
+    \end{frame}
+\referenceend
+}
+
+%%% Formatting captions
+\usepackage{caption}
+\DeclareCaptionFont{tiny}{\tiny}
+\captionsetup{font=scriptsize} % Font size
+\captionsetup{labelformat=empty} % No labels
+\captionsetup{justification=centering} % Centered
+
+%%% Title font
+\setbeamerfont{title}{series=\bfseries,size=\huge,parent=structure} % Bold fonts
+
+%%% Remove navigation
+\setbeamertemplate{navigation symbols}{} % No navigation buttons, they are useless
+
+% Rectangles for decoration
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+% Author email address command
+\newcommand{\email}[1]{\url{#1}}
+
+
+
+
+
+\newcommand{\referencebegin}{
+   \newcounter{framenumberappendix}
+   \setcounter{framenumberappendix}{\value{framenumber}}
+}
+
+\newcommand{\referenceend}{
+   \addtocounter{framenumberappendix}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
+
+
+
+% Thank you slide
+\newcommand{\thankyouslide}[2]{
+\begin{frame}[plain]
+
+\begin{tikzpicture}[remember picture, overlay]
+
+\fill[UAMAIgreen] (-1,-2.8) rectangle (10.2,-4.2);
+\end{tikzpicture}
+
+  \IfEqCase{#2}{
+    {EN}{
+    \vspace{8em}
+      {\Huge Thank you for your attention!}
+      \vspace{9em}\\
+      Please feel free to contact me any time at
+     \url{#1}
+    }
+    {SK}{
+    \vspace{8em}
+      {\Huge Ďakujem za Vašu pozornosť.}
+      \vspace{9em}\\
+      Môžete ma kontaktovať hocikedy na adrese
+     \url{#1}
+    }
+  }
+\addtocounter{framenumber}{-1}
+\end{frame}
+}
+
+
+
+% For AutomationShield
+\newcommand{\thankyouslideAS}{
+\begin{frame}[plain]
+
+\begin{tikzpicture}[remember picture, overlay]
+
+\fill[UAMAIgreen] (-1,-2.8) rectangle (10.2,-4.2);
+\end{tikzpicture}
+
+\vspace{8em}
+{\Huge Thank you for your attention!}
+\vspace{5em}\\
+Make sure to visit \url{www.automationshield.com} for more information.
+\vspace{4em}\\
+Please feel free to contact me any time at
+\url{gergelytakacs@gergelytakacs.com}
+\addtocounter{framenumber}{-1}
+\end{frame}
+}
+
+\newcommand{\titleslide}[2]{
+
+    \lstset{aboveskip=3pt, belowskip=3pt} %Space above and below lstlist boxes
+    \begin{frame}[plain]
+
+    \begin{tikzpicture}[remember picture, overlay]
+    \node (logo background) [shape=rectangle, fill=UAMAIgreen, minimum height=1.3cm, minimum width=80mm, anchor=south west] at ([xshift=7.5cm,yshift=1.5cm]current page.south west) {};
+    \end{tikzpicture}
+
+  \IfEqCase{#1}{
+    {EN}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (uamai) at ([xshift=7cm,yshift=0.5cm]current page.south west)
+        {\includegraphics[height=3cm]{uamai}};
+    \end{tikzpicture}
+    }
+    {SK}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (uamaiSK) at ([xshift=7cm,yshift=0.5cm]current page.south west)
+        {\includegraphics[height=3cm]{uamaiSK}};
+    \end{tikzpicture}
+    }
+  }
+
+  \IfEqCase{#2}{
+    {STU}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (stu) at ([xshift=0.5cm,yshift=0.5cm]current page.south west)
+        {\includegraphics[height=3cm]{stu}};
+    \end{tikzpicture}
+    }
+    {SjF}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (sjf) at ([xshift=0.5cm,yshift=0.5cm]current page.south west)
+        {\includegraphics[height=3cm]{sjf}};
+    \end{tikzpicture}
+    }
+  }
+
+
+
+
+  \titlepage
+  \addtocounter{framenumber}{-1}
+
+\end{frame}
+}
+
+

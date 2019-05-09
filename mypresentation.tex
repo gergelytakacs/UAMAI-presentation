@@ -1,63 +1,23 @@
 \documentclass{beamer}
-\input{UAMAIbeamer}
 
+\input{UAMAIbeamer}                                 % Contains settings for IAMAI / Obsahuje nastavenia pre UAMAI
 
-\title[Event or Presentation title] % Goes into footer. e.g. event name, date, paper number etc.
-{My awesome presentation:\\ a LaTeX Beamer extravaganza}  % Main title
-%\subtitle{} % (optional, use only with long paper titles)
+\title[Event or Presentation title]                 % Goes into footer only
+{My awesome presentation}                           % Main title
+\subtitle{A 15 minute LaTeX Beamer extravaganza}    % (optional, use only with long paper titles)
+\author[]{Bc. Jo\v{z}ko Mrkvi\v{c}ka}               % Name / Meno
+\date[13.04.2018]                                   % Date / Dátum
+\slideheader{EN}                                    % Logo in the header / Logo v hlavicke: SK, EN
+\slidefooter{EN}{STU}                               % Institucia a jazykova varianta / Institution and language version: SK, EN and STU, SjF
 
-
-\author[] % (optional, use only with lots of authors)
-{prof. Ing. Jo\v{z}ko Mrkvi\v{c}ka, PhD.}
-%{F.~Author\inst{1} \and S.~Another\inst{2}}
-% - Give the names in the same order as the appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation.
-
-\date[13.04.2018] % (optional, should be abbreviation of conference name)
-{}
-% - Either use conference name or its abbreviation.
-% - Not really informative to the audience, more for people (including
-%   yourself) who are reading the slides online
-
-\titlegraphic{\includegraphics[height=3cm]{stu}\hspace*{1cm}~%
-   \includegraphics[height=3cm]{uamai}
-}
-
-\subject{}
-% This is only inserted into the PDF information catalog. Can be left
-% out.
-
-% Delete this, if you do not want the table of contents to pop up at
-% the beginning of each subsection:
-
-\AtBeginSection[]
-{
-  \begin{frame}
-  \frametitle{Contents}
-  \tiny{\tableofcontents[currentsection]}
-  \end{frame}
-}
-
-% If you wish to uncover everything in a step-wise fashion, uncomment
-% the following command:
-%\beamerdefaultoverlayspecification{<+->}
 
 \begin{document}
-\lstset{aboveskip=3pt, belowskip=3pt} %Space above and below lstlist boxes
-%\nologo
-\begin{frame}%[plain]
-  \titlepage
-\end{frame}
 
-%\begin{frame}[plain]{Outline}
-%\tableofcontents[part=1]
-%\end{frame}
-%\begin{frame}
-%\frametitle{Outline}
-%\tableofcontents[part=1,pausesections]
-%\end{frame}
+\titleslide{EN}{STU}                                % Title slide / Titulkovy slide. Language / Jazyk: SK,EN; Logo STU, SjF
 
+%-----------------------------------
+%*** CONTENT BEGIN / ZACAT OBSAH ***
+%-----------------------------------
 \begin{frame}{Classic itemized list}
 This is some normal text with some items:
   \begin{itemize}
@@ -69,7 +29,7 @@ This is some normal text with some items:
 \end{frame}
 
 \begin{frame}{Blocks}
-You can also highlight information
+You can also highlight information in a so-called block
 \begin{block}{This is a block}
 Some information worth remembering.
 \end{block}
@@ -115,7 +75,7 @@ Chicken, chicken, chicken.
 \end{columns}
 \end{frame}
 
-\part{{\bf Parts} \protect\\ This is a stand-alone page separating parts. Use it sparingly, only for long presentations or lectures (>45 min).}
+\part{{\bf Parts} \protect\\ This is a stand-alone page separating parts. Use it sparingly, only for long presentations or lectures (>30-45 min).}
 \frame{\partpage}
 
 \begin{frame}{Figures}
@@ -127,7 +87,19 @@ Figures work the same exact way as in any other \LaTeX document:
 This of course includes the subfigure environment.
 \end{frame}
 
+\begin{frame}{References}
+You can and should use references. References are cited like in any other \LaTeX document, so we have \cite{Takacs2016b} or \cite{Asato2015,Stark2013} etc. References are inserted at the end of the presentation, are automatically broken up to frames and are not numbered.
+\end{frame}
 
+\begin{frame}{Pauses}
+Pauses serve to gradually reveal parts of your frame. This will create more pages in the PDF (without advancing the frame counter) thereby achieving the desired result.
+\pause
+\begin{itemize}
+\item Then you can go on the next portion of the information...
+\pause
+\item ...and the next one
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}[fragile]{Be creative!}
@@ -164,56 +136,58 @@ Very important information
 \end{columns}
 \end{frame}
 
-\begin{frame}{Prezentácia záverečnej práce (BP/DP) (1/2)}
+\begin{frame}[allowframebreaks]{Prezentácia záverečnej práce (BP/DP)}
 \begin{itemize}
-  \item Počet strán 10-10, odporúčané 15.
-  \item Strany musia byť očíslované
- \item Úvodná strana obsahuje, logo fakulty a ústavu, názov práce, Vaše meno a Meno školiteľa plus dátum prezentácie.
- \item Nasledujúca strana, krátky abstrakt práce (max. 5 viet) a stručný popis čo prezentácia bude prezentovať (cez odrážky - bodovo)
- \item V práci prezentujte HLAVNE svoj prínos žiadne úvody o všeobecnej teórii
-  \item fotografie reálnych výstupov sú vysoko vítané...
-
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Prezentácia záverečnej práce (BP/DP) (1/2)}
-\begin{itemize}
- \item Začínajte s tím prečo ste robili to čo robíte, potom aké boli východiská, ďalej ako ste samotný problém riešili a na záver zhodnoťte dosiahnuté ciele, prípadne dajte ešte krátku víziu čo by sa dalo robiť do budúcnosti (ak tam je potenciál - samozrejme).
- \item Posledná snímka (slide) Poďakovanie za pozornosť...
- \item Po poďakovaní čakajte na vyzvanie a potom bude prezentácia pokračovať vopred pripravenými odpoveďami na otázky oponenta. Štýlom Otázka oponenta a pod ňou Vaša odpoveď...
+  \item Dĺžka prezentácie je 15 min ani o minútu dlhšie.
+  \item Počet strán cca. 1-2 na minútu, odporúčané je teda 10-20.
+  \item Premietaná prezentácia slúži pre audienciu nie pre Vás. Spolu s tým čo hovoríte tvorí celok.
+  \item Neprepĺňajte slide informáciami. (Ako napríklad tu.) Je absolútne dovolené mať jednu vetu resp. jednu fotku na slide a potom slovne vysvetliť všetko ostatné.
+ \item Úvodná strana obsahuje názov práce a Vaše meno
+ \item Žiadne úvody o všeobecnej teórii
+ \item Musíte vysvetliť motiváciu. Motiváciu na napísanie BP/DP a motiváciu pre komisiu prečo dávať pozor
+  \item Prezentujte hlavne svoj prínos, vlastnú prácu a vlastné výsledky
+  \item Z prezentácie musí byť jasné čo ste robili vy, čo už ste mali dané, atď.
+  \item Fotografie reálnych výstupov sú vysoko vítané...
+  \item Začínajte s tím prečo ste robili to čo robíte, potom aké boli východiská, ďalej ako ste samotný problém riešili a na záver zhodnoťte dosiahnuté ciele, prípadne dajte ešte krátku víziu čo by sa dalo robiť do budúcnosti (ak tam je potenciál - samozrejme).
+  \item Posledná snímka (slide) Poďakovanie za pozornosť...
+ \item Po poďakovaní čakajte na vyzvanie a potom bude prezentácia pokračovať vopred pripravenými odpoveďami na otázky oponenta. Štýlom Otázka oponenta a pod ňou Vaša odpoveď... Môžete vložiť pár slideov až po poďakovaní kde uvediete otázky oponenta a Vaše odpovede na nich
  \item Ak máte videá z prezentácie dajte ich na záver svojej prezentácie, môže byť aj ako externý zdroj.
-\end{itemize}
 
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}{Prezentácia záverečnej práce (Dizertačná páca) (1/1)}
+\begin{frame}{Prezentácia záverečnej práce (Minimová páca)}
+
+Okrem všeobecne platných princípov pre minimovú prácu platí
+
 \begin{itemize}
- \item Uvediete podstatný obsah svojej DP a jej výsledky
+ \item Uvediete podstatný obsah svojej práce a jej výsledky
+ \item v rozsahu najviac 25 min, skôr 20 min.
+ \item Po závere a ešte pred poďakovaním vložíte tézy svojej práce.
+ \item Tézy sú testovateľné vedecké hypotézy nie ``zadania``!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Prezentácia záverečnej práce (Dizertačná páca)}
+
+Okrem všeobecne platných princípov pre dizertačnú prácu platí
+
+\begin{itemize}
+ \item Uvediete podstatný obsah svojej práce a jej výsledky
  \item splnenie cieľov zadania
  \item prínos práce
- \item ozsahu najviac 25 min, skôr 20 min.
+ \item v rozsahu najviac 25 min, skôr 20 min.
 \end{itemize}
 \end{frame}
 
 
+%-----------------------------------
+%*** CONTENT END / KONIEC OBSAHU ***
+%-----------------------------------
 
-
-
-
-\begin{frame}
-\vspace{8em}
-{\Huge Thank you for your attention!}
-
-\vspace{8em}
-Please feel free to contact me at
-\url{jozko.mrkvicka@stuba.sk}
-\end{frame}
-
-
-
+\thankyouslide{jozko.mrkvicka@stuba.sk}{EN} % Language / jazyk: SK, EN; Your e-mail or www / Tvoja e-mail alebo www adresa
+\referencesslide{Bibliography}{EN}          % Language / jazyk: SK, EN; Name of *.bib file / Nazov *.bib suboru
 
 \end{document}
 
