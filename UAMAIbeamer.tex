@@ -68,7 +68,7 @@
     \usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
     \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
   \end{beamercolorbox}}%
-  
+
   \IfEqCase{#1}{
     {EN}{
       \IfEqCase{#2}{
@@ -95,7 +95,7 @@
       }
     }
   }
-  
+
   \vskip0pt%
 }
 }
@@ -306,8 +306,8 @@ style=custommatlab}
 
 % References
 \newcommand{\referencesslide}[2]{
-\referencebegin   
-    
+\referencebegin
+
   \IfEqCase{#2}{
     {EN}{
     \begin{frame}[allowframebreaks,plain]{References}
@@ -315,13 +315,15 @@ style=custommatlab}
     {SK}{
     \begin{frame}[allowframebreaks,plain]{Bibliografia}
     }
-  }  
+  }
     \tiny
     \bibliographystyle{apalike}
     \bibliography{#1}
     \end{frame}
 \referenceend
 }
+
+
 
 %%% Formatting captions
 \usepackage{caption}
@@ -357,6 +359,16 @@ style=custommatlab}
    \addtocounter{framenumber}{\value{framenumberappendix}}
 }
 
+
+\newcommand{\reviewbegin}{
+   \newcounter{framenumberreview}
+   \setcounter{framenumberreview}{\value{framenumber}}
+}
+
+\newcommand{\reviewend}{
+   \addtocounter{framenumberreview}{-\value{framenumber}}
+   \addtocounter{framenumber}{\value{framenumberreview}}
+}
 
 
 

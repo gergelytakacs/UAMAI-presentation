@@ -6,9 +6,10 @@
 {My awesome presentation}                           % Main title
 \subtitle{A 15 minute LaTeX Beamer extravaganza}    % (optional, use only with long paper titles)
 \author[]{Bc. Jo\v{z}ko Mrkvi\v{c}ka}               % Name / Meno
-\date[13.04.2018]                                   % Date / Dátum
+\date[13.04.2018]{}                                   % Date / Dátum
 \slideheader{EN}                                    % Logo in the header / Logo v hlavicke: SK, EN
 \slidefooter{EN}{STU}                               % Institucia a jazykova varianta / Institution and language version: SK, EN and STU, SjF
+
 
 
 \begin{document}
@@ -101,6 +102,29 @@ Pauses serve to gradually reveal parts of your frame. This will create more page
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Overlays}
+Overlays essentially add more control to pause-like behavior when you want to reveal specific parts of your frame. By using overlay commands such as \code{<1-2,4,5->}, you can tell exactly when the part shall appear. The numbers in the brackets specify when the item should appear, the hyphen before tells \LaTeX that it should be there from the beginning, the hyphen after means that it should stay up to the end.
+
+Here is an example. \onslide<1->{You can} \onslide<2->{reveal this} \onslide<3->{text slowly} or use the overlays in any other environment:
+
+\begin{itemize}
+\item<1-> Foo
+\item<3-> Bar
+\item<-2> Baz
+\item<1,4> Qux
+\end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Framebreaks}
+
+You can create content and then break it up to several sub-slides by the \code{allowframebreaks} modifier. If you want to manually trigger a break, you then use \code{framebreak}. If you wish, you can just continue on your text and let \LaTeX decide when to break your frame to more slides (e.g. pages in the PDF).
+
+\framebreak
+
+\LaTeX will hold page numbering on the given slide, keep the title and append a roman numeral, as to indicate that the content continues. (It is a nasty little trick to decrease complete frame numbering, but still have the slides you need.)
+
+\end{frame}
+
 
 \begin{frame}[fragile]{Be creative!}
 Combine the above tricks to create visually engaging presentations!
@@ -136,6 +160,9 @@ Very important information
 \end{columns}
 \end{frame}
 
+
+
+
 \begin{frame}[allowframebreaks]{Prezentácia záverečnej práce (BP/DP)}
 \begin{itemize}
   \item Dĺžka prezentácie je 15 min ani o minútu dlhšie.
@@ -159,7 +186,7 @@ Very important information
 
 \begin{frame}{Prezentácia záverečnej práce (Minimová páca)}
 
-Okrem všeobecne platných princípov pre minimovú prácu platí
+Okrem všeobecne platných princípov pre prezentácie BP/DP na minimovú prácu platí aj
 
 \begin{itemize}
  \item Uvediete podstatný obsah svojej práce a jej výsledky
@@ -171,12 +198,13 @@ Okrem všeobecne platných princípov pre minimovú prácu platí
 
 \begin{frame}{Prezentácia záverečnej práce (Dizertačná páca)}
 
-Okrem všeobecne platných princípov pre dizertačnú prácu platí
+Okrem všeobecne platných princípov pre prezentácie BP/DP dizertačnú prácu platí aj
 
 \begin{itemize}
- \item Uvediete podstatný obsah svojej práce a jej výsledky
+ \item Uvediete podstatný obsah svojej práce a hlavne jej výsledky
  \item splnenie cieľov zadania
  \item prínos práce
+ \item používajte odvolávky na vlastnú prácu
  \item v rozsahu najviac 25 min, skôr 20 min.
 \end{itemize}
 \end{frame}
@@ -187,6 +215,29 @@ Okrem všeobecne platných princípov pre dizertačnú prácu platí
 %-----------------------------------
 
 \thankyouslide{jozko.mrkvicka@stuba.sk}{EN} % Language / jazyk: SK, EN; Your e-mail or www / Tvoja e-mail alebo www adresa
+
+\reviewbegin                                 % Use this to answer reviewer / Používať na predpripravené odpovede na oponentské otázky
+\begin{frame}[allowframebreaks,plain]{Reviewer's questions}
+
+{\it How did you calculate the mass of the sun?}
+
+The sun's mass has been found using Newton's law of gravitation.
+
+\framebreak
+
+{\it Why is the sky blue?}
+
+Blue light is scattered in all directions by the tiny molecules of air in Earth's atmosphere. Blue is scattered more than other colors because it travels as shorter, smaller waves. This is why we see a blue sky most of the time.
+
+\framebreak
+
+{\it How many five year olds can you realistically take in a fight?}
+
+About 31.
+
+\end{frame}
+\reviewend                                  % Use this to answer reviewer / Používať na predpripravené odpovede na oponentské otázky
+
 \referencesslide{Bibliography}{EN}          % Language / jazyk: SK, EN; Name of *.bib file / Nazov *.bib suboru
 
 \end{document}
