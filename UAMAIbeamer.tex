@@ -423,7 +423,7 @@ Please feel free to contact me any time at
 \end{frame}
 }
 
-\newcommand{\titleslide}[2]{
+\newcommand{\titleslide}[3][]{
 
     \lstset{aboveskip=3pt, belowskip=3pt} %Space above and below lstlist boxes
     \begin{frame}[plain]
@@ -432,7 +432,7 @@ Please feel free to contact me any time at
     \node (logo background) [shape=rectangle, fill=UAMAIgreen, minimum height=1.3cm, minimum width=80mm, anchor=south west] at ([xshift=7.5cm,yshift=1.5cm]current page.south west) {};
     \end{tikzpicture}
 
-  \IfEqCase{#1}{
+  \IfEqCase{#2}{
     {EN}{
     \begin{tikzpicture}[remember picture, overlay]
         \node[anchor=south west] (uamai) at ([xshift=7cm,yshift=0.5cm]current page.south west)
@@ -447,7 +447,7 @@ Please feel free to contact me any time at
     }
   }
 
-  \IfEqCase{#2}{
+  \IfEqCase{#3}{
     {STU}{
     \begin{tikzpicture}[remember picture, overlay]
         \node[anchor=south west] (stu) at ([xshift=0.5cm,yshift=0.5cm]current page.south west)
@@ -466,6 +466,17 @@ Please feel free to contact me any time at
 
 
   \titlepage
+    \vspace{1.2cm}
+    \IfEqCase{#2}{
+    {EN}{
+    Thesis supervisor: #1
+    }
+    {SK}{
+    Vedúci práce: #1
+    }
+  }
+
+
   \addtocounter{framenumber}{-1}
 
 \end{frame}
