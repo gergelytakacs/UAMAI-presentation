@@ -1,9 +1,17 @@
+% Ideas Date left of supervisor (when defined), middle if
+% not
+% Two screens beamer
 \usepackage{textpos} % package for the positioning
 \usepackage{eso-pic}
 \usepackage{tikz}
-
 \usepackage{xstring}
+\usepackage{xparse}
 
+
+\newcommand{\dualscreen}{
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen}
+}
 
 \mode<presentation>
 {
@@ -16,41 +24,6 @@
 \definecolor{uamai}{RGB}{141, 198, 63}
 
 
-%\newcommand\AtPagemyLowerRight[1]{\AtPageLowerLeft{%
-%\put(\LenToUnit{0.0\paperwidth},\LenToUnit{0.0\paperheight}){#1}}}
-%\AddToShipoutPictureFG{
-%  \AtPagemyLowerRight{{\includegraphics[height=0.29cm,keepaspectratio]{footer}}}
-%}%
-
-
-%\newcommand{\slidefooter}{
-%  %\IfEqCase{#1}{
-%    {EN}{
-%      \IfEqCase{#2}{
-%        {STU}{
-%      \begin{tikzpicture}[remember picture,overlay]
-%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_EN_STU}};
-%      \end{tikzpicture}}
-%          {SjF}{
-%      \begin{tikzpicture}[remember picture,overlay]
-%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_EN_SjF}};
-%      \end{tikzpicture}}
-%      }
-%    }
-%    {SK}{
-%      \IfEqCase{#2}{
-%        {STU}{
-%      \begin{tikzpicture}[remember picture,overlay]
-%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_SK_STU}};
-%      \end{tikzpicture}}
-%          {SjF}{
-%      \begin{tikzpicture}[remember picture,overlay]
-%            \node[anchor=south west,yshift=-0.4mm,xshift=0mm] at (current page.south west) {\includegraphics[height=2mm]{footer_SK_SjF}};
-%      \end{tikzpicture}}
-%      }
-%    }
-%  }
-%}
 
 \makeatletter
 \newcommand{\slidefooter}[2]{
@@ -115,7 +88,18 @@
 }
 \makeatother
 
+%\setbeamercolor{alertcolor}{fg=white,bg=uamai}
+%\newcommand{myalert}[1]{{
+%  \usebeamercolor{alertcolor}\colorbox{bg}{\alert{#1}}
+%}}
+\setbeamercolor{very important text}{fg=white,bg=uamai}
+\newcommand{\veryimportant}[1]{{%
+  \usebeamercolor{very important text}\colorbox{bg}{\textcolor{white}{#1}}%
+}}
 
+\newcommand{\important}[1]{\ignorespaces\textcolor{uamai}{#1}}
+
+\setbeamercolor{alerted text}{fg=uamai}
 
 \newcommand{\slideheader}[1]{
 
@@ -423,6 +407,7 @@ Please feel free to contact me any time at
 \end{frame}
 }
 
+
 \newcommand{\titleslide}[3][]{
 
     \lstset{aboveskip=3pt, belowskip=3pt} %Space above and below lstlist boxes
@@ -431,6 +416,8 @@ Please feel free to contact me any time at
     \begin{tikzpicture}[remember picture, overlay]
     \node (logo background) [shape=rectangle, fill=UAMAIgreen, minimum height=1.3cm, minimum width=80mm, anchor=south west] at ([xshift=7.5cm,yshift=1.5cm]current page.south west) {};
     \end{tikzpicture}
+    
+    %detect if optional argument
 
   \IfEqCase{#2}{
     {EN}{
@@ -462,24 +449,49 @@ Please feel free to contact me any time at
     }
   }
 
-
-
-
   \titlepage
-    \vspace{1.2cm}
+
+\vspace{1.3cm}
+
+\setbox0=\hbox{#1\unskip}\ifdim\wd0=0pt
+
+  %\hfill\insertshortdate{}
+
+\else
     \IfEqCase{#2}{
     {EN}{
-    Thesis supervisor: #1
-    }
+    Thesis supervisor: #1 \hfill \insertshortdate{}
+     }
     {SK}{
-    Vedúci práce: #1
+    Vedúci práce: #1 \hfill \insertshortdate{}
+     }
+
     }
-  }
+\fi
+
+
 
 
   \addtocounter{framenumber}{-1}
 
 \end{frame}
+}
+
+\newenvironment{reviewerquestions}[1]
+{
+\reviewbegin                                 % Use this to answer reviewer / Používať na predpripravené odpovede na oponentské otázky
+  \IfEqCase{#1}{
+    {EN}{
+    \begin{frame}[allowframebreaks,plain]{Reviewer's questions} % {Otázky oponenta}
+    }
+    {SK}{
+      \begin{frame}[allowframebreaks,plain]{Otázky oponenta} % {Otázky oponenta}
+    }
+  }
+}
+{
+\end{frame}
+\reviewend                                  % Use this to answer reviewer / Používať na pripravené odpovede na oponentské otázky
 }
 
 

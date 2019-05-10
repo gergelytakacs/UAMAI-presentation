@@ -1,18 +1,21 @@
-\documentclass{beamer}
-
+\documentclass{beamer}                              % Use [handout] to disable transitions / Pouzivat opciu [handout] na vypnutie prechodov
 \input{UAMAIbeamer}                                 % Contains settings for IAMAI / Obsahuje nastavenia pre UAMAI
+
+%\dualscreen                                        % For showing notes on the second screen / Pre poznamky na druhej obrazovke
 
 \title[Event or Presentation title]                 % Goes into footer only
 {My awesome presentation}                           % Main title
 \subtitle{A 15 minute LaTeX Beamer extravaganza}    % (optional, use only with long paper titles)
 \author[]{Bc. Jo\v{z}ko Mrkvi\v{c}ka}               % Name / Meno
-\date[13.04.2018]{}                                 % Date / Dátum
+\date[06.06.2019]{}                                 % Date / Dátum
 \slideheader{EN}                                    % Logo in the header / Logo v hlavicke: SK, EN
 \slidefooter{EN}{STU}                               % Institucia a jazykova varianta / Institution and language version: SK, EN and STU, SjF
 
+
+
 \begin{document}
 
-\titleslide[prof. Ing. Voldemort, PhD.]{EN}{STU}    % Title slide / Titulkovy slide. Language / Jazyk: SK,EN; Logo STU, SjF. First optional argument [] is the supervisor / Prvý argument je vedúci
+\titleslide[prof. Voldemort, PhD.]{EN}{STU}    % Title slide / Titulkovy slide. Language / Jazyk: SK,EN; Logo STU, SjF. First optional argument [] is the supervisor / Prvý argument je vedúci
 
 %-----------------------------------
 %*** CONTENT BEGIN / ZACAT OBSAH ***
@@ -25,6 +28,9 @@ This is some normal text with some items:
     \item and list item three.
   \end{itemize}
   And some more text.
+
+  \note{This is a slide note}
+
 \end{frame}
 
 \begin{frame}{Blocks}
@@ -123,6 +129,26 @@ You can create content and then break it up to several sub-slides by the \code{a
 
 \end{frame}
 
+\begin{frame}{Highlights}
+\begin{itemize}
+\item Use the \code{important} command to create text that is \important{important}. Alternatively you can use the \code{alert} command that is valid in Beamer to \alert{achieve the same results}. The original color for alerts in beamer is red, which would look very ugly here.
+\item Use the \code{veryimportant} command to create text that is \veryimportant{very important}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Notes on the second screen}
+\begin{itemize}
+\item In many situations it is good to see your own notes for the speech on a second screen. This screen is facing towards the presenter, away from the audience and contains material separate to the main presentation. To use this uncomment the \code{dualscreen} command in the preamble.
+
+\item You must then consult \url{https://www.scivision.dev/beamer-latex-dual-display-pdf-notes/}, where you can find information on how to set up your computer for various operating systems to display notes. The binary executable installers of \code{pympress} for Windows are found here: \url{https://github.com/Cimbali/pympress/releases/tag/v1.2.0}. You can swap screens by pressing the \code{s} button.
+
+\item Notes can be entered using the \code{note} command.
+
+\end{itemize}
+
+\note{This is a note that will be displayed on the second screen}
+
+\end{frame}
 
 \begin{frame}[fragile]{Be creative!}
 Combine the above tricks to create visually engaging presentations!
@@ -212,10 +238,14 @@ Okrem všeobecne platných princípov pre prezentácie BP/DP dizertačnú prácu
 %*** CONTENT END / KONIEC OBSAHU ***
 %-----------------------------------
 
-\thankyouslide{jozko.mrkvicka@stuba.sk}{EN} % Language / jazyk: SK, EN; Your e-mail or www / Tvoja e-mail alebo www adresa
+\thankyouslide{jmrkvicka@stuba.sk}{EN} % Language / jazyk: SK, EN; Your e-mail or www / Tvoja e-mail alebo www adresa
 
-\reviewbegin                                 % Use this to answer reviewer / Používať na predpripravené odpovede na oponentské otázky
-\begin{frame}[allowframebreaks,plain]{Reviewer's questions} % {Otázky oponenta}
+%-----------------------------------
+%*** OPTIONAL / NEPOVINNE ***
+%-----------------------------------
+
+% RESPOND TO QUESTIONS / ODPOVEDAT NA OTAZKY
+\begin{reviewerquestions}{EN} % Use this to answer reviewer / Používať na pripravené odpovede na oponentské otázky EN, SK
 
 {\it How did you calculate the mass of the sun?}
 
@@ -233,9 +263,9 @@ Blue light is scattered in all directions by the tiny molecules of air in Earth'
 
 About 31.
 
-\end{frame}
-\reviewend                                  % Use this to answer reviewer / Používať na pripravené odpovede na oponentské otázky
+\end{reviewerquestions}
 
+% REFERENCES / BIBLIOGRAFIA
 \referencesslide{Bibliography}{EN}          % Language / jazyk: SK, EN; Name of *.bib file / Nazov *.bib suboru
 
 \end{document}
