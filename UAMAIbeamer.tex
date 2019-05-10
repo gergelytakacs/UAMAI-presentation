@@ -1,5 +1,4 @@
-% Ideas Date left of supervisor (when defined), middle if
-% not
+% Green citations OR footnote citations. Biber???
 % Two screens beamer
 \usepackage{textpos} % package for the positioning
 \usepackage{eso-pic}
@@ -7,6 +6,7 @@
 \usepackage{xstring}
 \usepackage{xparse}
 
+\usepackage[gen]{eurosym}
 
 \newcommand{\dualscreen}{
 \usepackage{pgfpages}
@@ -23,6 +23,12 @@
 \definecolor{arduteal}{RGB}{23, 161, 165}
 \definecolor{uamai}{RGB}{141, 198, 63}
 
+
+% Overpic
+\usepackage[percent]{overpic} % Writing over pics
+ \usepackage[skins]{tcolorbox} % Nice color boxes
+
+\newcommand{\tbox}[1]{\tcbox[enhanced,size=fbox,fontupper=\footnotesize,colback=white!100,drop fuzzy shadow southeast, sharp corners]{#1}}
 
 
 \makeatletter
@@ -148,20 +154,19 @@
 \lstset{basicstyle=\normalsize\ttfamily,breaklines=true,numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em}
 
 \lstdefinelanguage{Arduino}[]{C++}      %Defining Arduino
-{morekeywords={pgm_read_float,pgm_read_word,PROGMEM,pinMode,digitalWrite,digitalRead,analogReference,analogRead,analogWrite,analogReadResolution,analogWriteResolution,tone,noTone,shiftOut,shiftIn,pulseIn,millis,micros,delay,delayMicroseconds,min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,isAlphaNumeric,isAlpha,isAscii,isWhitespace,isControl,isDigit,isGraph,isLowerCase,isPrintable,isPunct,isSpace,isUpperCase,iisHexadecimalDigit,randomSeed,random,lowByte,highByte,bitRead,bitWrite,
+{morekeywords={setup,loop,function,pgm_read_float,pgm_read_word,PROGMEM,pinMode,digitalWrite,digitalRead,analogReference,analogRead,analogWrite,analogReadResolution,analogWriteResolution,tone,noTone,shiftOut,shiftIn,pulseIn,millis,micros,delay,delayMicroseconds,min,max,abs,constrain,map,pow,sqrt,sin,cos,tan,isAlphaNumeric,isAlpha,isAscii,isWhitespace,isControl,isDigit,isGraph,isLowerCase,isPrintable,isPunct,isSpace,isUpperCase,iisHexadecimalDigit,randomSeed,random,lowByte,highByte,bitRead,bitWrite,
 bitSet,bitClear,bit,attachInterrupt,detachInterrupt,interrupts,noInterrupts,Serial,Stream,Keyboard,Mouse},
 sensitive=true,
 alsoletter={_}
 }
 
-
-
 \lstdefinelanguage{myArduino}[]{Arduino}      %Defining my own Arduino
-{morekeywords={setup,loop,function},
+{morekeywords={OptoShield,HeatShield,begin,calibration,sensorRead,actuatorWrite},
 sensitive=true,
 alsoletter={_},
 numbers=left,
 xleftmargin=2em,
+xrightmargin=0.2em,
 frame=single,
 framexleftmargin=1.5em
 }
@@ -416,7 +421,7 @@ Please feel free to contact me any time at
     \begin{tikzpicture}[remember picture, overlay]
     \node (logo background) [shape=rectangle, fill=UAMAIgreen, minimum height=1.3cm, minimum width=80mm, anchor=south west] at ([xshift=7.5cm,yshift=1.5cm]current page.south west) {};
     \end{tikzpicture}
-    
+
     %detect if optional argument
 
   \IfEqCase{#2}{
