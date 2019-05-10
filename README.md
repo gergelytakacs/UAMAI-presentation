@@ -66,7 +66,7 @@ Pri profesionálnych prezentáciach je často využitá konfigurácia dvoch moni
 ```
 a pre daný slide poznámky dávať do príkazu `\note{Moja poznamka...}`.
 
-Na rozdiel od softvéru PowerPoint, počítač automaticky neporadí so situáciou keďže LaTeX vygeneruje PDF. Je potrebné konzultovať [tento návod](https://www.scivision.dev/beamer-latex-dual-display-pdf-notes/), ktorý uvedie spôsob využitia dvojitých monitorov pre prezentáciu pre operačné systémy (OS) Windows, Linux aj MacOS.
+Na rozdiel od softvéru PowerPoint, počítač automaticky neporadí so situáciou keďže LaTeX vygeneruje PDF. Je potrebné konzultovať [tento návod](https://www.scivision.dev/beamer-latex-dual-display-pdf-notes/), ktorý uvedie spôsob využitia dvojitých monitorov pre prezentáciu pre operačné systémy (OS) Windows, Linux aj MacOS. Sofvér `pympress` je dostupný rovno ako [predpripravený inštalačný súbor](https://github.com/Cimbali/pympress/releases/).
 
 
 
