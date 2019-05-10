@@ -1,6 +1,6 @@
 # UAMAIpresentation
 
-SK: Mustra na prezentácie pre Ústav automatizácie, merania a aplikovanej informatiky (ÚAMAI), SjF STU v Bratislave.
+SK: Mustra na prezentácie pre Ústav automatizácie, merania a aplikovanej informatiky (ÚAMAI), SjF STU v Bratislave. Mustra je vhodná na konferenčné a iné profesionálne prezentácie aj na obhajoby záverečných prác. Mustra obsahuje konfigurovateľné jazykové varianty a voliteľnú nadradenú organizačnú zložku.
 
 EN: Beamer template and example for IAMAI, FME, STU in Bratislava.
 
@@ -66,7 +66,7 @@ Pri profesionálnych prezentáciach je často využitá konfigurácia dvoch moni
 ```
 a pre daný slide poznámky dávať do príkazu `\note{Moja poznamka...}`.
 
-Na rozdiel od softvéru PowerPoint, počítač automaticky neporadí so situáciou keďže LaTeX vygeneruje PDF. Je potrebné konzultovať [tento návod](https://www.scivision.dev/beamer-latex-dual-display-pdf-notes/)
+Na rozdiel od softvéru PowerPoint, počítač automaticky neporadí so situáciou keďže LaTeX vygeneruje PDF. Je potrebné konzultovať [tento návod](https://www.scivision.dev/beamer-latex-dual-display-pdf-notes/), ktorý uvedie spôsob využitia dvojitých monitorov pre prezentáciu pre operačné systémy (OS) Windows, Linux aj MacOS.
 
 
 
