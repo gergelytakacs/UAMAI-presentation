@@ -94,10 +94,6 @@
 }
 \makeatother
 
-%\setbeamercolor{alertcolor}{fg=white,bg=uamai}
-%\newcommand{myalert}[1]{{
-%  \usebeamercolor{alertcolor}\colorbox{bg}{\alert{#1}}
-%}}
 \setbeamercolor{very important text}{fg=white,bg=uamai}
 \newcommand{\veryimportant}[1]{{%
   \usebeamercolor{very important text}\colorbox{bg}{\textcolor{white}{#1}}%
@@ -292,8 +288,22 @@ style=custommatlab}
 
 
 
+% REFERENCE RELATED COMMANDS
+% ----------------------------------------------------
+% Generic reference related
 
-% References
+\newcommand{\citep}[1]{
+{\color{uamai} [\cite{#1}]}
+}
+
+%\setbeamercolor{bibliography item}{parent=red}
+\setbeamercolor*{bibliography entry title}{fg=black}
+\setbeamercolor*{bibliography entry author}{fg=uamai}
+\setbeamercolor*{bibliography entry journal}{fg=uamai}
+\setbeamercolor*{bibliography entry note}{fg=black}
+% -----------------------------------------------------
+% References specific for BiBTeX
+% -----------------------------------------------------
 \newcommand{\referencesslide}[2]{
 \referencebegin
 
@@ -305,14 +315,56 @@ style=custommatlab}
     \begin{frame}[allowframebreaks,plain]{Bibliografia}
     }
   }
-    \tiny
+    \small
     \bibliographystyle{apalike}
     \bibliography{#1}
     \end{frame}
 \referenceend
 }
 
+\newcommand{\bibliographyfile}[2]{
+    \IfEqCase{#2}{
+    {EN}{
+            \usepackage[
+            citestyle = authoryear,
+            backend   = biber
+            ]{biblatex}
+            \addbibresource{#1}
+            \AtBeginBibliography{\small}
+            \AtEveryCitekey{\iffootnote{\color{uamai}\scriptsize}{\color{uamai}}}
+        }
+    {SK}{
+            \usepackage[slovak]{babel}
+            \usepackage[
+            citestyle = authoryear,
+            backend   = biber
+            ]{biblatex}
+            \addbibresource{#1}
+            \AtBeginBibliography{\small}
+            \AtEveryCitekey{\iffootnote{\color{uamai}\scriptsize}{\color{uamai}}}
+        }
+     }
+}
 
+% References slide for biber
+\newcommand{\referencesslidebiber}[1]{
+\referencebegin
+
+  \IfEqCase{#1}{
+    {EN}{
+    \begin{frame}[allowframebreaks,plain]{References}
+    }
+    {SK}{
+    \begin{frame}[allowframebreaks,plain]{Bibliografia}
+    }
+  }
+    \printbibliography
+    \end{frame}
+\referenceend
+}
+
+% END REFERENCE RELATED COMMANDS
+% -----------------------------------------------------
 
 %%% Formatting captions
 \usepackage{caption}
@@ -498,5 +550,9 @@ Please feel free to contact me any time at
 \end{frame}
 \reviewend                                  % Use this to answer reviewer / Používať na pripravené odpovede na oponentské otázky
 }
+ %bugfix
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
 
 
