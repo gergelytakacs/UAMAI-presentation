@@ -21,8 +21,10 @@
 
 \usepackage{color}
 \definecolor{arduteal}{RGB}{23, 161, 165}
-\definecolor{uamai}{RGB}{141, 198, 63}
+\definecolor{uamai}{RGB}{141, 198, 63}   % Green shade for UAMAI, SjF, STU in Bratislava
 
+\setbeamercolor{title}{fg=white,bg=uamai}% This is for the title (w/box)
+\setbeamercolor{footnote mark}{fg=uamai} % Color of footnote marks (numbering) in beamer. Pretty darn hard to find.
 
 % Overpic
 \usepackage[percent]{overpic} % Writing over pics
@@ -79,6 +81,7 @@
 }
 }
 \makeatother
+
 
 
 \setbeamercolor{toptitlecolor}{fg=black,bg=uamai}
@@ -157,7 +160,7 @@ alsoletter={_}
 }
 
 \lstdefinelanguage{myArduino}[]{Arduino}      %Defining my own Arduino
-{morekeywords={OptoShield,HeatShield,begin,calibration,sensorRead,actuatorWrite},
+{morekeywords={OptoShield,HeatShield,begin,calibration,sensorRead,actuatorWrite,referenceRead,compute,PIDAbs,step},
 sensitive=true,
 alsoletter={_},
 numbers=left,
@@ -326,8 +329,12 @@ style=custommatlab}
     \IfEqCase{#2}{
     {EN}{
             \usepackage[
-            citestyle = authoryear,
-            backend   = biber
+            citestyle       = authoryear,
+            doi             = false,
+            isbn            = false,
+            url             = false,
+            maxcitenames    = 2,
+            backend         = biber
             ]{biblatex}
             \addbibresource{#1}
             \AtBeginBibliography{\small}
@@ -336,8 +343,11 @@ style=custommatlab}
     {SK}{
             \usepackage[slovak]{babel}
             \usepackage[
-            citestyle = authoryear,
-            backend   = biber
+            doi             = false,
+            isbn            = false,
+            url             = false,
+            maxcitenames    = 2,
+            backend         = biber
             ]{biblatex}
             \addbibresource{#1}
             \AtBeginBibliography{\small}
@@ -437,33 +447,26 @@ style=custommatlab}
       Môžete ma kontaktovať hocikedy na adrese
      \url{#1}
     }
+    {AS}{
+\begin{tikzpicture}[remember picture, overlay]
+ \node[anchor=north west] (aslogo) at ([xshift=1.3cm,yshift=-0.3cm]current page.north west)
+       {\includegraphics[width=10cm]{automationshield}};
+\fill[UAMAIgreen] (-2,-3.0) rectangle (10.2,-4.2);
+\end{tikzpicture}
+
+\vspace{7.5em}
+{\Huge Thank you for your attention!}
+\vspace{4em}\\
+Make sure to visit \url{www.automationshield.com} for more information.
+\vfill
+Please feel free to contact me any time at
+\url{#1}
+
+    }
   }
 \addtocounter{framenumber}{-1}
 \end{frame}
 }
-
-
-
-% For AutomationShield
-\newcommand{\thankyouslideAS}{
-\begin{frame}[plain]
-
-\begin{tikzpicture}[remember picture, overlay]
-
-\fill[UAMAIgreen] (-1,-2.8) rectangle (10.2,-4.2);
-\end{tikzpicture}
-
-\vspace{8em}
-{\Huge Thank you for your attention!}
-\vspace{5em}\\
-Make sure to visit \url{www.automationshield.com} for more information.
-\vspace{4em}\\
-Please feel free to contact me any time at
-\url{gergelytakacs@gergelytakacs.com}
-\addtocounter{framenumber}{-1}
-\end{frame}
-}
-
 
 \newcommand{\titleslide}[3][]{
 
@@ -498,10 +501,22 @@ Please feel free to contact me any time at
         {\includegraphics[height=3cm]{stu}};
     \end{tikzpicture}
     }
+    {STU_EXT}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (stuext) at ([xshift=-0.5cm,yshift=0.9cm]current page.south west)
+        {\includegraphics[height=2.2cm]{stuext}};
+    \end{tikzpicture}
+    }
     {SjF}{
     \begin{tikzpicture}[remember picture, overlay]
         \node[anchor=south west] (sjf) at ([xshift=0.5cm,yshift=0.5cm]current page.south west)
         {\includegraphics[height=3cm]{sjf}};
+    \end{tikzpicture}
+    }
+    {SjF_EXT}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south west] (sjfext) at ([xshift=-0.5cm,yshift=0.9cm]current page.south west)
+        {\includegraphics[height=2.2cm]{sjfext}};
     \end{tikzpicture}
     }
   }
