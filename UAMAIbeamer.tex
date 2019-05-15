@@ -23,7 +23,7 @@
 \definecolor{arduteal}{RGB}{23, 161, 165}
 \definecolor{uamai}{RGB}{141, 198, 63}   % Green shade for UAMAI, SjF, STU in Bratislava
 
-\setbeamercolor{title}{fg=white,bg=uamai}% This is for the title (w/box)
+\setbeamercolor{title}{fg=black,bg=uamai}% This is for the title (w/box)
 \setbeamercolor{footnote mark}{fg=uamai} % Color of footnote marks (numbering) in beamer. Pretty darn hard to find.
 
 % Overpic
@@ -99,7 +99,7 @@
 
 \setbeamercolor{very important text}{fg=white,bg=uamai}
 \newcommand{\veryimportant}[1]{{%
-  \usebeamercolor{very important text}\colorbox{bg}{\textcolor{white}{#1}}%
+  \usebeamercolor{very important text}\colorbox{bg}{\textcolor{black}{#1}}%
 }}
 
 \newcommand{\important}[1]{\ignorespaces\textcolor{uamai}{#1}}
@@ -384,7 +384,7 @@ style=custommatlab}
 \captionsetup{justification=centering} % Centered
 
 %%% Title font
-\setbeamerfont{title}{series=\bfseries,size=\huge,parent=structure} % Bold fonts
+\setbeamerfont{title}{size=\Huge,parent=structure} % Bold fonts
 
 %%% Remove navigation
 \setbeamertemplate{navigation symbols}{} % No navigation buttons, they are useless
