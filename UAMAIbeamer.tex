@@ -343,12 +343,16 @@ style=custommatlab}
     {SK}{
             \usepackage[slovak]{babel}
             \usepackage[
+            citestyle       = authoryear,
             doi             = false,
             isbn            = false,
             url             = false,
             maxcitenames    = 2,
             backend         = biber
             ]{biblatex}
+            \DefineBibliographyStrings{slovak}{
+            andothers = {{a\ kol\adddot}},
+            }
             \addbibresource{#1}
             \AtBeginBibliography{\small}
             \AtEveryCitekey{\iffootnote{\color{uamai}\scriptsize}{\color{uamai}}}
@@ -384,7 +388,7 @@ style=custommatlab}
 \captionsetup{justification=centering} % Centered
 
 %%% Title font
-\setbeamerfont{title}{size=\Huge,parent=structure} % Bold fonts
+\setbeamerfont{title}{size=\Large,parent=structure} % Bold fonts
 
 %%% Remove navigation
 \setbeamertemplate{navigation symbols}{} % No navigation buttons, they are useless
